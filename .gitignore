@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+proyecto/
+venv/
+.env
+
+# VSCode
+.vscode/
+
+# Python cache
+.pytest_cache/
+
+# Database
+*.db
+
+# Logs
+*.log
+
+# macOS
+.DS_Store
