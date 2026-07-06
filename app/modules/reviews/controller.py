@@ -10,10 +10,12 @@ class ReviewController:
     async def create(
         db: AsyncSession,
         data: ReviewCreate,
+        user_id: int,
     ):
         return await ReviewService.create(
             db,
             data,
+            user_id,
         )
 
     @staticmethod

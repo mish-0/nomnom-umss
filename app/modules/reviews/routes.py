@@ -4,6 +4,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.database import get_db
+from app.core.dependencies import get_current_user
 
 from app.modules.reviews.controller import ReviewController
 from app.modules.reviews.schema import (
@@ -29,10 +30,12 @@ DBSession = Annotated[
 async def create_review(
     data: ReviewCreate,
     db: DBSession,
+    current_user=Depends(get_current_user),
 ):
     return await ReviewController.create(
         db,
         data,
+        user_id=current_user.id,
     )
 
 
