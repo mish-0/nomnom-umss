@@ -9,15 +9,11 @@ class FoodStallController:
     @staticmethod
     async def create(
         db: AsyncSession,
-        data: FoodStallCreate
+        data: FoodStallCreate,
+        owner_id: int,          
     ):
-        return await FoodStallService.create(
-            db,
-            data
-        )
+        return await FoodStallService.create(db, data, owner_id)
 
     @staticmethod
-    async def get_all(
-        db: AsyncSession
-    ):
+    async def get_all(db: AsyncSession):
         return await FoodStallService.get_all(db)

@@ -7,7 +7,6 @@ class FoodStallCreate(BaseModel):
     location: str
     schedule: str
     phone: str
-    owner_id: int
 
 
 class FoodStallResponse(BaseModel):
@@ -19,6 +18,4 @@ class FoodStallResponse(BaseModel):
     phone: str
     owner_id: int
 
-    model_config = ConfigDict(
-        from_attributes=True
-    )
+    model_config = ConfigDict(from_attributes=True)
