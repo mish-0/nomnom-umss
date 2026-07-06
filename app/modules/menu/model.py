@@ -26,5 +26,5 @@ class MenuItem(Base):
     )
 
     food_stall_id: Mapped[int] = mapped_column(
-        ForeignKey("food_stalls.id")
+        ForeignKey("food_stalls.id", ondelete="CASCADE")
     )

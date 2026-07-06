@@ -33,5 +33,5 @@ class FoodStall(Base):
     )
 
     owner_id: Mapped[int] = mapped_column(
-        ForeignKey("users.id")
+        ForeignKey("users.id", ondelete="CASCADE")
     )
