@@ -4,6 +4,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.database import get_db
+from app.core.dependencies import require_role
 
 from app.modules.menu.controller import MenuController
 from app.modules.menu.schema import (
@@ -29,6 +30,7 @@ DBSession = Annotated[
 async def create_menu_item(
     data: MenuItemCreate,
     db: DBSession,
+    current_user=Depends(require_role("DUENO")),
 ):
     return await MenuController.create(
         db,
